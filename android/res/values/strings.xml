@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">KPLP TANJUNG UBAN</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Profil Saya</string>
+    <string name="btnTakePicture">Capture Image</string>
+    <string name="btnRecordVideo">Record Video</string>
+    <string name="or">(or)</string>
+    <string name="btnUploadToServer">Upload to Server</string>
+    <string name="kepanjangankplp">Kesatuan Penjagaan Laut dan Pantai</string>
+    <string name="armada">ARMADA PLP WILAYAH BARAT</string>
+    <string name="tugu">KPLP TG UBAN - Kepulauan Riau</string>
+    <string name="kas_opera">Kasubsie Operasi</string>
+    <string name="nomer_call">081287144126</string>
+
+</resources>

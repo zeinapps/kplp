@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+	android:padding="5dp"
+	android:background="@drawable/card_background_selector"
+	android:descendantFocusability="afterDescendants" >
+    
+    
+    <ImageView
+        android:id="@+id/image_list_foto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:padding="0dp"
+        android:src="@drawable/ic_launcher" />
+    
+    
+    <TextView
+        android:id="@+id/txt_list_namapelapor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_list_foto"
+        android:textColor="#111"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="Andriani" />
+    
+    <ImageView
+        android:id="@+id/image_list_status"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:padding="2dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/txt_list_lokasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/image_list_status"
+        android:layout_toLeftOf="@+id/image_list_status"
+        android:text="Laut Arafuru"
+        android:textColor="#111"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_list_tgl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_list_lokasi"
+        android:layout_toLeftOf="@+id/image_list_status"
+        android:text="02 April 2016"
+        android:textColor="#666"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/txt_list_jenis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txt_list_namapelapor"
+        android:layout_below="@+id/txt_list_namapelapor"
+        android:text="Telah tejadi kecelakaan..."
+        android:textColor="#111"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
+</RelativeLayout>

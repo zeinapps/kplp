@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="ab_background">#33B5e5</color>
+    <color name="bt_green">#2ECD71</color>
+    <color name="bt_blue">#00ACEE</color>
+    <color name="bt_yellow">#FBAD31</color>
+    <color name="st_yellow">#FBAD31</color>
+    <color name="st_green">#2ecd71</color>
+    <color name="orange_tab">#FF9C53</color>
+    <color name="orange_header">#FFA65C</color>
+    <color name="black_tab">#323232</color>
+    <color name="grey_tab">#626262</color>
+    <color name="white_bg">#FAFAFA</color>
+    <color name="grey_bg">#d3d3d3</color>
+    <color name="black_text">#5A5A5A</color>
+    <color name="divider_tab">#ebebeb</color>
+    <color name="blue_tab">#bcd4e6</color>
+    <color name="counter_bg.xmlcounter_bg.xml">#bce6d4</color>
+    <color name="gray">#d5d5d5</color>
+    <color name="main_bg">#ececec</color>
+    <color name="view_background">#e8ecfa</color>
+    <color name="btn_bg">#277bec</color>
+    <color name="white">#ffffff</color>
+    <color name="txt_font">#4e5572</color>
+    <color name="action_bar">#1f2649</color>
+
+</resources>
