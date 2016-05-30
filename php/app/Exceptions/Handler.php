@@ -51,6 +51,9 @@ class Handler extends ExceptionHandler
             if($code==404){
                 return redirect('/');
             }
+            if($code==401){
+                return redirect('/503');
+            }
         }
         return parent::render($request, $e);
     }

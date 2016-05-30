@@ -27,6 +27,7 @@
                                     <th>Nama</th>
                                     <th>HP</th>
                                     <th>Jabatan</th>
+                                    <th>Role</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -39,8 +40,15 @@
                                     <td>{{ $item['hp'] }}</td>
                                     <td>{{ $item['jabatan'] }}</td>
                                     <td>
+                                        <?php $roles = $item['roles'];?>
+                                        @foreach ( $roles as $ite)
+                                        <div class="@if( $ite['slug'] == 'administrator' ) {{ 'alert alert-info' }} @else {{ 'alert alert-danger' }} @endif" style="padding: 5px; margin-bottom: 5px">{{ $ite['name'] }}</div>
+                                        @endforeach
+                                    </td>
+                                    <td>
                                         <a href="/user/{{ $item['id'] }}" class="btn btn-primary btn-xs">Detil</a>
                                         <a href="/user/edit/{{ $item['id'] }}" class="btn btn-warning btn-xs">Edit</a>
+                                        <a href="/user/edit/{{ $item['id'] }}/role" class="btn btn-warning btn-xs">Atur Role </a>
                                     </td>
                                 </tr>
                                 @endforeach

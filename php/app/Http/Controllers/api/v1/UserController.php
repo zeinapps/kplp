@@ -29,7 +29,12 @@ class UserController extends Controller {
             'password' => $request->password,
         ];
         if ($user = Auth::once($credentials)) {
-            return $this->SendData(Auth::user());
+            $userlogin = Auth::user();
+            if($userlogin->is('admin')){
+                return $this->SendData($userlogin);
+            }else{
+                return $this->SendError(['Login Gagal']);
+            }
         }else{
             return $this->SendError(['Login Gagal']);
         }

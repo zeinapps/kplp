@@ -32,7 +32,7 @@ Route::group(['prefix' => 'api/v1', 'namespace' => 'api\v1'], function() {
 }); 
 Route::auth();
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth','acl'],'is' => 'administrator'], function () {
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/laporan', 'LaporanController@index');
     Route::get('/laporan/{id}', 'LaporanController@show');
@@ -44,5 +44,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/user/create', 'UserController@create');
     Route::get('/user/edit/{id}', 'UserController@edit');
     Route::get('/user/{id}', 'UserController@show');
+    
+    
+    Route::get('/user/edit/{id}/role', 'UserController@editrole');
+    Route::post('/user/update/{id}/role', 'UserController@updaterole');
+});
+
+Route::get('503', function () {
+    return  view('errors.503');
 });
 

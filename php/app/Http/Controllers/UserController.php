@@ -15,10 +15,13 @@ class UserController extends Controller {
 
     public function index(Request $request) {
         $limit = $request->limit ? $request->limit : 10;
-        $query = User::paginate($limit);
+        $query = User::with(['roles' => function($q){
+                            $q->select('roles.id','name','slug');
+                        }])->paginate($limit);
         $page = $request->page ? $request->page : 1;
         $no = ($page-1) * $limit + 1;
         $Data = $query->toArray();
+//        dd($Data['data']);
         $data = [
             'data' => $Data['data'],
             'pagination' => $query,
@@ -66,8 +69,16 @@ class UserController extends Controller {
         $user->jabatan = $request->jabatan ? $request->jabatan : '';
         $user->password = bcrypt($request->password);
         $user->save();
-        
+        $user->assignRole('admin');
         return redirect('user');
+    }
+    
+    public function editrole($id) {
+        $user = User::find($id);
+        $user->administrator = $user->is('administrator');
+        $user->admin = $user->is('admin') ;
+//        dd($user->administrator);
+        return view('sbadmin2.user.formeditrole', $user);
     }
     
     public function update(Request $request, $id) {
@@ -98,6 +109,34 @@ class UserController extends Controller {
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $exc) {
             return $this->SendError(['Gagal Menyimpan']);
         } 
+        
+        return redirect('user');
+    }
+    
+    public function updaterole(Request $request, $id) {
+        $userlogin = $request->user();
+        $user = User::find($id);
+        
+        
+        
+        if($request->administrator){
+            $user->assignRole('administrator');
+        }else{
+            if($userlogin->id == $id){
+                return redirect('user/edit/'.$id.'/role')
+                            ->withErrors(['Maaf, Anda Tidak bisa menghapus role administrator anda'])
+                            ->withInput();
+            }else{
+                $user->revokeRole('administrator');
+            }
+            
+        }
+        
+        if($request->admin){
+            $user->assignRole('admin');
+        }else{
+            $user->revokeRole('admin');
+        }
         
         return redirect('user');
     }
